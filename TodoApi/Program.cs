@@ -7,9 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = "Server=127.0.0.1;Port=3306;Database=todo;User=intern;Password=intern123;";
 builder.Services.AddDbContext<TodoDb>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySQL(connectionString));
 
-//builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();

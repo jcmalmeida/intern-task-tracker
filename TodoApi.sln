@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi", "TodoApi\TodoApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoAPICLI", "TodoApiCLI\TodoAPICLI.csproj", "{8E706EB3-F393-44C9-9AC9-AD41A82AED2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi.Tests", "TodoApi.Tests\TodoApi.Tests.csproj", "{B249E6EB-988C-45A0-9717-849816845602}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8E706EB3-F393-44C9-9AC9-AD41A82AED2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E706EB3-F393-44C9-9AC9-AD41A82AED2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E706EB3-F393-44C9-9AC9-AD41A82AED2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B249E6EB-988C-45A0-9717-849816845602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B249E6EB-988C-45A0-9717-849816845602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B249E6EB-988C-45A0-9717-849816845602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B249E6EB-988C-45A0-9717-849816845602}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

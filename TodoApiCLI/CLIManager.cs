@@ -91,7 +91,7 @@ public static class CliManager
             }
             catch (Exception)
             {
-                Console.WriteLine("Não existe tarefa com o ID fornecido. Tente novamente!");
+                Console.WriteLine("Não existe tarefa com o ID fornecido. Tente novamente!\n");
             }
         }
         while (true);
@@ -110,11 +110,11 @@ public static class CliManager
                 var todoExist = await TodoManager.GetTodoExist(client, int.Parse(todoId));
 
                 if (!todoExist)
-                    Console.WriteLine("Não existe tarefa com o ID fornecido. Tente novamente!");
+                    Console.WriteLine("Não existe tarefa com o ID fornecido. Tente novamente!\n");
             }
             catch (Exception)
             {
-                Console.WriteLine("Erro ao buscar a tarefa. Tente novamente!");
+                Console.WriteLine("Erro ao buscar a tarefa. Tente novamente!\n");
                 break;
             }
 
@@ -129,7 +129,7 @@ public static class CliManager
             }
             catch (HttpRequestException)
             {
-                Console.WriteLine("Erro ao editar a tarefa. Tente novamente!");
+                Console.WriteLine("Erro ao editar a tarefa. Tente novamente!\n");
             }
         }
         while (true);

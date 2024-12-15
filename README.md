@@ -1,5 +1,7 @@
 # intern-task-tracker
 
+REQUISITO
+
 Ter o docker instalado. Rodar o seguinte comando docker para inicializar um container MySQL:
 
 docker run --name intern-task-tracker-server \ 
