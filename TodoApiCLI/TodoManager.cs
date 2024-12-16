@@ -9,7 +9,7 @@ namespace TodoApiCLI;
 
 public static class TodoManager
 {
-    public static string todoEndpoint = "/todoitems";
+    public static string todoEndpoint = "http://todoapi:5258/todoitems";
     public static JsonSerializerOptions options =
         new JsonSerializerOptions
             {

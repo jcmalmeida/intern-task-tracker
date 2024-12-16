@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: intern-task-tracker-server
+    environment:
+      MYSQL_ROOT_PASSWORD: 897$576acbf42Hk
+      MYSQL_DATABASE: todo
+      MYSQL_USER: intern
+      MYSQL_PASSWORD: intern123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "intern", "-pintern123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  todoapi:
+    build:
+      context: ./TodoApi
+      dockerfile: Dockerfile
+    container_name: todoapi
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "5258:5258"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5258 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  todoapicli:
+    build:
+      context: .
+      dockerfile: ./TodoApiCLI/Dockerfile
+    container_name: todoapicli
+    depends_on:
+      mysql:
+        condition: service_healthy
+      todoapi:
+        condition: service_healthy
+    entrypoint: ["dotnet", "TodoApiCLI.dll"]
+    tty: true
+    stdin_open: true
+
+volumes:
+  mysql_data:

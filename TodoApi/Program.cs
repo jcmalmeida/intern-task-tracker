@@ -4,8 +4,12 @@ using TodoApi.Endpoints;
 using TodoApi.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5258);
+});
 
-var connectionString = "Server=127.0.0.1;Port=3306;Database=todo;User=intern;Password=intern123;";
+var connectionString = "Server=mysql;Port=3306;Database=todo;User=intern;Password=intern123;";
 builder.Services.AddDbContext<TodoDb>(options =>
     options.UseMySQL(connectionString));
 

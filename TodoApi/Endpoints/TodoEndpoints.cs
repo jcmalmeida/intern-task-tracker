@@ -8,7 +8,19 @@ public static class TodoEndpoints
 {
     public static void MapTodoEndpoints(this WebApplication app)
     {
-        app.MapGet("/", () => "Hello World!");
+        app.MapGet("/", (TodoDb db) =>
+        {
+            try
+            {
+                db.Database.CanConnect();
+                return Results.Ok("Healthy");
+            }
+            catch (Exception)
+            {
+                return Results.StatusCode(500);
+            }
+        });
+
 
         app.MapGet("/todoitems", async (TodoDb db) =>
             await db.Todos.ToListAsync());

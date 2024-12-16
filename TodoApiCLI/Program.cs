@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using TodoApiCLI;
 
-var baseUrl = "http://localhost:5258";
+var baseUrl = "http://todoapi:5258";
 
 using var client = new HttpClient { BaseAddress = new Uri(baseUrl) };
 
